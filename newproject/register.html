@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Register</h2>
+    <form action="{{ url_for('register') }}" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="mobile_number">Mobile Number:</label><br>
+        <input type="text" id="mobile_number" name="mobile_number"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address"><br>
+        <input type="hidden" id="latitude" name="latitude">
+        <input type="hidden" id="longitude" name="longitude">
+        <input type="submit" value="Register">
+    </form>
+    <a href="{{ url_for('login') }}">Login</a>
+</body>
+<script>
+// JavaScript code to fetch the address from Google Maps API and fill in the latitude and longitude fields
+</script>
+</html>

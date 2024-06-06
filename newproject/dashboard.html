@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <form action="{{ url_for('add_task') }}" method="POST">
+        <label for="name">Task Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="date_time">Date and Time:</label><br>
+        <input type="datetime-local" id="date_time" name="date_time"><br>
+        <label for="assigned_to">Assign To:</label><br>
+        <select id="assigned_to" name="assigned_to">
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.name }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="Add Task">
+    </form>
+    <h3>All Tasks</h3>
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task.name }} - {{ task.date_time }} - {{ task.status }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
